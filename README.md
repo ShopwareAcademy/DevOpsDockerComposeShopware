@@ -14,9 +14,33 @@ It demonstrates how to:
 
 Tested for **Shopware 6.7**.
 
-## Usage
+## Reference Project
 
-This repository contains the file state after the practical lab. After cloning it, you still need to build the image, start the containers, and initialize the local Shopware database.
+This repository is an educational reference state for the Academy practical lab. It is meant for comparing your local result with a known working project state.
+
+You do not need to run this project to use it as a reference. The most important files to compare are:
+
+- `Dockerfile`
+- `compose.yaml`
+
+These files show the expected Docker image build and Docker Compose runtime setup at the end of the lab.
+
+It is not a production template. The credentials, service names, and runtime settings in `compose.yaml` are intentionally simple for local learning.
+
+## Optional: Run the Project Locally
+
+If you want to run this reference project locally, you still need to build the image, start the containers, and initialize the local Shopware database.
+
+The Compose setup uses the same host ports as the practical lab:
+
+- `8080` for the Shopware storefront
+- `3306` for the MySQL database
+
+If your own lab project is still running, stop it first from that project directory:
+
+```bash
+docker compose down
+```
 
 Build and start the local Docker Compose setup:
 
@@ -53,12 +77,6 @@ Stop the setup:
 ```bash
 docker compose down
 ```
-
-## Reference Project
-
-This repository is an educational reference state for the Academy practical lab. It is meant for comparing your local result with a known working project state.
-
-It is not a production template. The credentials, service names, and runtime settings in `compose.yaml` are intentionally simple for local learning.
 
 ## License
 
