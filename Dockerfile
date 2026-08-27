@@ -1,4 +1,4 @@
-FROM ghcr.io/shopware/shopware-cli:latest-php-8.3 AS builder
+FROM ghcr.io/shopware/shopware-cli:latest-php-8.5 AS builder
 
 WORKDIR /app
 
@@ -9,9 +9,9 @@ COPY . .
 
 RUN --mount=type=cache,target=/root/.composer \
     --mount=type=cache,target=/root/.npm \
-    /usr/local/bin/entrypoint.sh shopware-cli project ci /app
+    /usr/local/bin/entrypoint.sh shopware-cli project ci --force /app
 
-FROM ghcr.io/shopware/docker-base:8.3-caddy-otel AS final
+FROM ghcr.io/shopware/docker-base:8.5-frankenphp AS final
 
 WORKDIR /var/www/html
 
