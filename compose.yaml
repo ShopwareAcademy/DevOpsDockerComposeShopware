@@ -8,7 +8,6 @@ services:
         environment:
             DATABASE_URL: "mysql://shopware:shopware@database:3306/shopware"
             APP_URL: "http://localhost:8080"
-            APP_SECRET: "devsecret"
         depends_on:
             database:
                 condition: service_healthy
